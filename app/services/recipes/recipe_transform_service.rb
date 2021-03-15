@@ -17,7 +17,7 @@ module Recipes
     attr_reader :data
 
     def transform_data
-      if data.is_a? Array
+      if data.is_a? Contentful::Array
         transform_list
       else
         transform_recipe(data)

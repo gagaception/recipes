@@ -69,6 +69,10 @@ RSpec.describe Recipes::RecipeTransformService, type: :service do
         )
       ]
     end
+    
+    before :each do
+      allow(recipes).to receive(:is_a?).and_return(true)
+    end
 
     it "should be Array" do
       response = Recipes::RecipeTransformService.call(recipes)
