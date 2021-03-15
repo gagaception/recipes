@@ -1,6 +1,12 @@
 # Recipes
 
 This is a recipes application using Contentful Content Delivery API.
+# Environment
+```sh
+ruby version '2.6.3'
+
+rails version '6.0.3'
+```
 
 # Setting up
 
@@ -18,6 +24,10 @@ This is a recipes application using Contentful Content Delivery API.
   EDITOR=vim rails credentials:edit
 
   development:
+    contentful:
+      space_id: <SPACE_ID>
+      access_token: <ACCESS_TOKEN>
+  test:
     contentful:
       space_id: <SPACE_ID>
       access_token: <ACCESS_TOKEN>
