@@ -19,10 +19,14 @@ RSpec.describe Recipes::RecipeListService, type: :service do
     end
 
     context "with custom params" do
-      let(:list) {Recipes::RecipeListService.new({page: 2, order_field: "sys.updatedAt"})}
+      let(:list) {Recipes::RecipeListService.new(2, 3, "sys.updatedAt")}
 
       it "should respond to the second page" do
         expect(list.send(:page)).to eq(2)  
+      end
+
+      it "should respond with 3 recipes" do
+        expect(list.send(:per_page)).to eq(3)  
       end
 
       it "should be ordered by updatedAt" do
