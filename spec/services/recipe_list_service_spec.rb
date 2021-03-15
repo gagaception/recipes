@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Recipes::RecipeListService, type: :service do
-  context '#initialize' do
+  describe '#initialize' do
     context "#default params" do
       let(:list) {Recipes::RecipeListService.new}
   

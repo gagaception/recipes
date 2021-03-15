@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Recipes::RecipeTransformService, type: :service do
-  context "Single recipe" do
+  describe "Single recipe" do
     context "with all data" do
       let(:recipe) do 
         OpenStruct.new(
@@ -56,7 +56,7 @@ RSpec.describe Recipes::RecipeTransformService, type: :service do
     end
   end
 
-  context "Recipe list" do
+  describe "Recipe list" do
     let(:recipes) do 
       [
         OpenStruct.new(
@@ -69,7 +69,7 @@ RSpec.describe Recipes::RecipeTransformService, type: :service do
         )
       ]
     end
-    
+
     before :each do
       allow(recipes).to receive(:is_a?).and_return(true)
     end

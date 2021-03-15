@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Recipes::SingleRecipeService, type: :service do
-  describe "#initialize" do
+  context "#initialize" do
     let(:recipe) {Recipes::SingleRecipeService.new('4dT8tcb6ukGSIg2YyuGEOm')}
     
     it "should response to id" do
