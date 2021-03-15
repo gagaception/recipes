@@ -2,8 +2,6 @@ require 'redcarpet'
 
 module Recipes
   class RecipeTransformService < BaseService
-    TransformedRecipe = Struct.new(:id, :title, :description, :photo_url, :tags, :chef)
-
     def initialize(data)
       @data = data
     end
@@ -19,7 +17,7 @@ module Recipes
     attr_reader :data
 
     def transform_data
-      if data.instance_of? Contentful::Array
+      if data.is_a? Array
         transform_list
       else
         transform_recipe(data)
@@ -31,24 +29,32 @@ module Recipes
     end
 
     def transform_recipe(recipe)
-      TransformedRecipe.new(
-        recipe.id,
-        recipe.title,
-        markdown(recipe.description),
-        recipe&.photo&.url,
-        tags(recipe),
-        recipe&.chef&.name
+      OpenStruct.new(
+        id: recipe.id,
+        title: recipe.title,
+        description: markdown(recipe),
+        photo_url: photo_url(recipe),
+        tags: tags(recipe),
+        chef: chef(recipe)
       )
     end
 
-    def markdown(description)
+    def markdown(recipe)
       renderer = Redcarpet::Render::HTML.new({})
       markdown = Redcarpet::Markdown.new(renderer, {})
-      markdown.render(description)
+      markdown.render(recipe.description)
     end
 
     def tags(recipe)
       recipe.tags.map(&:name)
+    end
+
+    def photo_url(recipe)
+      recipe&.photo&.url || 'https://i.picsum.photos/id4000.jpg?hmac=aHjb0fRa1t14DTIEBcoC12c5rAXOSwnVlaA5ujxPQ0I'
+    end
+
+    def chef(recipe)
+      recipe&.chef&.name || ''
     end
   end
 end

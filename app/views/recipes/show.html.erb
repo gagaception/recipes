@@ -12,7 +12,7 @@
         <% end %>
       </ul>
       <p class="what_cooking">What's cooking</p>
-      <p class="recipe_desc"><%= strip_tags(@recipe.description) %></p>
+      <div class="recipe_desc"><%= @recipe.description.html_safe %></div>
       <p>Shared with you by: <span class="recipe_chef"><%= @recipe.chef %></span></p>
     </div>
   </div>
