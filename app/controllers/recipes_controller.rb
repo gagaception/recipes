@@ -1,6 +1,6 @@
 class RecipesController < ApplicationController
   def index
-    response =  Recipes::RecipeListService.call
+    response =  Recipes::RecipeListService.call(params[:page], params[:per_page], params[:order_field])
     if response.successful?
       @recipes = Recipes::RecipeTransformService.call(response.data).data
     else

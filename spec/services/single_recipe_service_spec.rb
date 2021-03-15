@@ -19,7 +19,7 @@ RSpec.describe Recipes::SingleRecipeService, type: :service do
 
     it "should return error when recipe doesn't exist" do
       response = Recipes::SingleRecipeService.call('non_existing_id')
-      error = 
+       
       expect(response.successful?).to be false
       expect(response.error.message).to eq("Recipe with id: non_existing_id not found")
     end
