@@ -1,1 +1,21 @@
-<%= @recipe.inspect %>
+<div class="recipe_container">
+  <%= link_to "Back to list", recipes_path, {class: "return_link"} %>
+  <div class="recipe_img_block">
+    <img src="<%= @recipe.photo&.url %>" alt="Recipe's photo">
+  </div>
+  <div class="recipe_info_block">
+    <div class="recipe_info">
+      <p class="recipe_title"><%= @recipe.title %></p>
+      <ul>
+        <% @recipe.fields[:tags]&.each do |tag| %>
+        <li class="recipe_tag"><%= tag.name%></li>
+        <% end %>
+      </ul>
+      <p class="what_cooking">What's cooking</p>
+      <p class="recipe_desc"><%= strip_tags(@recipe.description) %></p>
+      <% unless @recipe.fields[:chef].blank? %>
+      <p>Shared with you by: <span class="recipe_chef"><%= @recipe.fields[:chef].name %></span></p>
+      <% end %>
+    </div>
+  </div>
+</div>

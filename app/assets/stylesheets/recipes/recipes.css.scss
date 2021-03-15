@@ -1,0 +1,57 @@
+html,
+body {
+  overflow-anchor: none;
+  font-size: 1rem;
+  font-family: "Avenir Next Cyr W00 Regular", Arial, sans-serif;
+  line-height: 1.2rem;
+  background-color: #f6f6f6;
+  padding-top: 28px;
+}
+
+.recipes_container {
+  width: 900px;
+  margin: 0 auto;
+}
+
+.recipe_list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.recipes_container h2 {
+  text-align: center;
+}
+
+.recipe {
+  margin-bottom: 28px;
+  position: relative;
+  overflow: hidden;
+  background-color: #fff;
+  border-radius: 4px;
+  padding: 0;
+  width: 436px;
+}
+
+.recipe img {
+  max-width: 100%;
+  height: auto;
+  -ms-interpolation-mode: bicubic;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.recipe_title {
+  padding: 15px;
+  text-align: center;
+}
+
+.recipe_title a {
+  font-weight: 300;
+  text-decoration: none;
+  color: #000;
+}
+
+.recipe_title a:hover {
+  color: #47d7ac;
+}
