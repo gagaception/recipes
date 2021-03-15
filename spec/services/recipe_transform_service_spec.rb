@@ -8,8 +8,8 @@ RSpec.describe Recipes::RecipeTransformService, type: :service do
           id: "c86ds78cdscsdhsdsdf",
           title: "Sample recipe",
           description: "__bold text__ *Italic text*: [watch video](https://www.youtube.com/)",
-          photo: OpenStruct.new(url: 'photo_url'),
-          tags: [OpenStruct.new(name: 'sample_tag'), OpenStruct.new(name: 'second_tag')],
+          photo: OpenStruct.new(url: "photo_url"),
+          tags: [OpenStruct.new(name: "sample_tag"), OpenStruct.new(name: "second_tag")],
           chef: OpenStruct.new(name: "Sample chef")
         )
       end
@@ -40,7 +40,7 @@ RSpec.describe Recipes::RecipeTransformService, type: :service do
         OpenStruct.new(
           id: "c86ds78cdscsdhsdsdf",
           title: "Sample recipe",
-          description: '',
+          description: "",
           photo: OpenStruct.new(url: nil),
           tags: [],
           chef: OpenStruct.new(chef: nil),
@@ -50,7 +50,7 @@ RSpec.describe Recipes::RecipeTransformService, type: :service do
       it "should return default values" do
         response = Recipes::RecipeTransformService.call(recipe)
         expect(response.data.photo_url).to eq("https://i.picsum.photos/id4000.jpg?hmac=aHjb0fRa1t14DTIEBcoC12c5rAXOSwnVlaA5ujxPQ0I")
-        expect(response.data.chef).to eq('')
+        expect(response.data.chef).to eq("")
         expect(response.data.tags).to eq([])
       end
     end
@@ -63,8 +63,8 @@ RSpec.describe Recipes::RecipeTransformService, type: :service do
           id: "c86ds78cdscsdhsdsdf",
           title: "Sample recipe",
           description: "__bold text__ *Italic text*: [watch video](https://www.youtube.com/)",
-          photo: OpenStruct.new(url: 'photo_url'),
-          tags: [OpenStruct.new(name: 'sample_tag'), OpenStruct.new(name: 'second_tag')],
+          photo: OpenStruct.new(url: "photo_url"),
+          tags: [OpenStruct.new(name: "sample_tag"), OpenStruct.new(name: "second_tag")],
           chef: OpenStruct.new(name: "Sample chef")
         )
       ]

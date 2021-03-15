@@ -1,6 +1,6 @@
 module Recipes
   class RecipeListService < BaseService
-    def initialize(page=1, per_page=4, order_field='sys.createdAt')
+    def initialize(page=1, per_page=4, order_field="sys.createdAt")
       @page = page
       @per_page = per_page
       @order_field = order_field

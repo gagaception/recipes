@@ -1,4 +1,4 @@
-require 'redcarpet'
+require "redcarpet"
 
 module Recipes
   class RecipeTransformService < BaseService
@@ -50,11 +50,11 @@ module Recipes
     end
 
     def photo_url(recipe)
-      recipe&.photo&.url || 'https://i.picsum.photos/id4000.jpg?hmac=aHjb0fRa1t14DTIEBcoC12c5rAXOSwnVlaA5ujxPQ0I'
+      recipe&.photo&.url || "https://i.picsum.photos/id4000.jpg?hmac=aHjb0fRa1t14DTIEBcoC12c5rAXOSwnVlaA5ujxPQ0I"
     end
 
     def chef(recipe)
-      recipe&.chef&.name || ''
+      recipe&.chef&.name || ""
     end
   end
 end

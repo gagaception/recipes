@@ -1,7 +1,7 @@
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.describe Recipes::RecipeListService, type: :service do
-  describe '#initialize' do
+  describe "#initialize" do
     context "#default params" do
       let(:list) {Recipes::RecipeListService.new}
   
@@ -10,7 +10,7 @@ RSpec.describe Recipes::RecipeListService, type: :service do
       end
 
       it "should be ordered by createdAt" do
-        expect(list.send(:order_field)).to eq('sys.createdAt') 
+        expect(list.send(:order_field)).to eq("sys.createdAt") 
       end
 
       it "should return default recipes count" do
@@ -30,7 +30,7 @@ RSpec.describe Recipes::RecipeListService, type: :service do
       end
 
       it "should be ordered by updatedAt" do
-        expect(list.send(:order_field)).to eq('sys.updatedAt') 
+        expect(list.send(:order_field)).to eq("sys.updatedAt") 
       end
     end
   end
