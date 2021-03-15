@@ -7,7 +7,7 @@
       <% @recipes.each do |recipe| %>
       <div class="recipe">
         <%= link_to recipe_path(recipe.id) do %>
-          <img src="<%= recipe.photo.url %>" alt="Recipe's photo">
+          <img src="<%= recipe.photo_url %>" alt="Recipe's photo">
         <% end %>
         <div class="recipe_title">
           <h3><%= link_to recipe.title, recipe_path(recipe.id) %></h3>
